@@ -11,14 +11,14 @@ A native macOS application to convert Markdown-formatted quizzes into QTI (Quest
 
 2. Run the app:
 ```bash
-   npm start
+   npm run start
 ```
 
 ## Building the macOS App
 
 To create a distributable macOS application:
 ```bash
-npm run build:mac
+npm run dist:unsigned
 ```
 
 This will create a DMG file in the `dist/` folder that you can distribute to users.
