@@ -2,6 +2,10 @@
 
 A native macOS application to convert Markdown-formatted quizzes into QTI (Question and Test Interoperability) format.
 
+## Install Release version of the macOS App
+
+View [Simple_Install.md](Simple_Install.md) and follow the instructions to intall the release versionof the app.
+
 ## Installation for Development
 
 1. Install dependencies:
@@ -24,10 +28,6 @@ npm run dist:unsigned
 This will create a DMG file in the `dist/` folder that you can distribute to users.
 
 For advanced installation options and signing the application view [INSTALLATION_INSTRUCTIONS.md](INSTALLATION_INSTRUCTIONS.md).
-
-## Install Release version of the app
-
-View [Simple_Install.md](Simple_Install.md) and follow the instructions to intall the release versionof the app.
 
 ## Usage
 
