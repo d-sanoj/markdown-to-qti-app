@@ -5,10 +5,15 @@
     "main": "main.js",
     "scripts": {
         "start": "electron .",
+        "pwa": "node server.js",
+        "pwa:dev": "nodemon server.js",
         "build": "electron-builder",
         "build-icon": "electron-icon-builder --input=./assets/icon.png --output=./assets --flatten",
         "build:mac": "electron-builder --mac",
-        "dist": "electron-builder --mac --publish never"
+        "build:mac-unsigned": "electron-builder --mac --config.mac.identity=null",
+        "dist": "electron-builder --mac --publish never",
+        "dist:unsigned": "electron-builder --mac --publish never --config.mac.identity=null",
+        "postinstall": "electron-builder install-app-deps"
     },
     "keywords": [
         "qti",
@@ -28,7 +33,8 @@
     "devDependencies": {
         "electron": "^38.3.0",
         "electron-builder": "^26.0.12",
-        "electron-icon-builder": "^2.0.1"
+        "electron-icon-builder": "^2.0.1",
+        "electron-notarize": "^1.2.2"
     },
     "build": {
         "appId": "com.yourcompany.markdown-to-qti",
@@ -40,10 +46,19 @@
                 "dmg",
                 "zip"
             ],
-            "icon": "assets/icon_small.png"
+            "icon": "assets/icon_small.png",
+            "hardenedRuntime": true,
+            "gatekeeperAssess": false,
+            "entitlements": "build/entitlements.mac.plist",
+            "entitlementsInherit": "build/entitlements.mac.plist"
         },
         "dmg": {
-            "title": "Markdown to QTI Converter"
+            "title": "Markdown to QTI Converter",
+            "background": "assets/icon.png",
+            "window": {
+                "width": 540,
+                "height": 380
+            }
         },
         "files": [
             "main.js",
@@ -54,6 +69,7 @@
         ],
         "directories": {
             "output": "dist"
-        }
+        },
+        "afterSign": "build/notarize.js"
     }
 }
