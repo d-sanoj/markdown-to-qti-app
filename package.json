@@ -1,0 +1,59 @@
+{
+    "name": "markdown-to-qti",
+    "version": "1.0.0",
+    "description": "Convert Markdown quizzes to QTI format",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder",
+        "build-icon": "electron-icon-builder --input=./assets/icon.png --output=./assets --flatten",
+        "build:mac": "electron-builder --mac",
+        "dist": "electron-builder --mac --publish never"
+    },
+    "keywords": [
+        "qti",
+        "markdown",
+        "quiz",
+        "converter"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "jszip": "^3.10.1",
+        "uuid": "^9.0.1",
+        "xmldom": "^0.6.0"
+    },
+    "devDependencies": {
+        "electron": "^38.3.0",
+        "electron-builder": "^26.0.12",
+        "electron-icon-builder": "^2.0.1"
+    },
+    "build": {
+        "appId": "com.yourcompany.markdown-to-qti",
+        "productName": "Markdown to QTI",
+        "icon": "assets/icon_small.png",
+        "mac": {
+            "category": "public.app-category.education",
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "icon": "assets/icon_small.png"
+        },
+        "dmg": {
+            "title": "Markdown to QTI Converter"
+        },
+        "files": [
+            "main.js",
+            "MarkdownToQTI.js",
+            "public/**/*",
+            "assets/**/*",
+            "node_modules/**/*"
+        ],
+        "directories": {
+            "output": "dist"
+        }
+    }
+}

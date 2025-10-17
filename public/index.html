@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Markdown → QTI Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Markdown → QTI Converter</h1>
+  </header>
+  
+  <main>
+    <div class="instruction">
+      <strong>Quick Start:</strong> Paste your quiz in Markdown format below, then click Convert to generate and download your QTI ZIP file.
+    </div>
+
+    <div class="section-title">Quiz Content</div>
+    
+    <div class="textarea-wrapper">
+      <textarea id="markdown" placeholder="# Quiz Title
+
+## 1. Question?
+Type: multiple_choice
+Points: 1
+* Correct answer
+- Incorrect answer
+"></textarea>
+    </div>
+
+    <div class="file-section">
+      <div class="section-title">Export Settings</div>
+      <label class="file-label" for="filename">Provide a name for your file:</label>
+      <div class="row">
+        <input id="filename" type="text" value="qti_export.zip" placeholder="e.g., my_quiz.zip" />
+        <button id="convert">Convert to QTI</button>
+      </div>
+      <div id="status" class="status" style="display: none;"></div>
+      <p class="note"><strong>Supported question types:</strong> multiple_choice, true_false, multiple_answers, fill_in_blank, fill_in_multiple_blanks, matching, numerical, essay, file_upload, text, calculated</p>
+    </div>
+
+    <div class="info-section">
+      <div class="section-title">Documentation & Examples</div>
+      <div id="markdown-info" class="markdown-content">
+        <p>Loading information...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const btn = document.getElementById('convert');
+    const statusEl = document.getElementById('status');
+
+    function setStatus(msg, kind) {
+      statusEl.textContent = msg;
+      statusEl.className = 'status ' + (kind || '');
+      statusEl.style.display = msg ? 'flex' : 'none';
+    }
+
+    // Load and render markdown information
+    fetch('/information.md')
+      .then(res => res.text())
+      .then(markdown => {
+        document.getElementById('markdown-info').innerHTML = marked.parse(markdown);
+      })
+      .catch(err => {
+        document.getElementById('markdown-info').innerHTML = '<p>Information not available.</p>';
+      });
+
+    btn.addEventListener('click', async () => {
+      const markdown = document.getElementById('markdown').value;
+      let filename = document.getElementById('filename').value.trim() || 'qti_export.zip';
+      if (!filename.endsWith('.zip')) filename += '.zip';
+
+      if (!markdown.trim()) {
+        setStatus('Please enter quiz content first', 'error');
+        return;
+      }
+
+      setStatus('Converting your quiz…', '');
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('/api/convert', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ markdown, filename })
+        });
+
+        if (!response.ok) {
+          const err = await response.json().catch(() => ({ error: 'Unknown error' }));
+          throw new Error(err.error || 'Conversion failed');
+        }
+
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        setStatus('Conversion complete! Downloaded ' + filename, 'success');
+      } catch (e) {
+        setStatus(e.message || 'Conversion failed', 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>

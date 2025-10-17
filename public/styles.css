@@ -1,0 +1,493 @@
+/* OU Brand Design System Styles */
+
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    /* OU Brand Colors */
+    --ou-crimson: #841617;
+    --ou-crimson-dark: #6b1213;
+    --ou-crimson-light: #a91e1f;
+    --ou-cream: #F2EDE4;
+    --ou-gray-dark: #333333;
+    --ou-gray-medium: #666666;
+    --ou-gray-light: #CCCCCC;
+    --ou-white: #FFFFFF;
+    --ou-black: #000000;
+    
+    /* Semantic Colors */
+    --success-bg: #d4edda;
+    --success-border: #28a745;
+    --success-text: #155724;
+    --error-bg: #f8d7da;
+    --error-border: #dc3545;
+    --error-text: #721c24;
+  }
+  
+  body { 
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0; 
+    padding: 0; 
+    background: #F5F5F5;
+    min-height: 100vh;
+    color: var(--ou-gray-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Header */
+  header { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--ou-crimson);
+    color: var(--ou-white); 
+    padding: 16px 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  
+  header h1 {
+    margin: 0;
+    font-family: 'Arboria', 'Proxima Nova', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: var(--ou-white);
+    text-shadow: none;
+  }
+  
+  header p {
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    color: var(--ou-white);
+    opacity: 0.95;
+  }
+  
+  /* Main Content */
+  main { 
+    max-width: 1200px; 
+    margin: 40px auto; 
+    margin-top: 100px; /* Further reduced top margin for shorter header */
+    background: var(--ou-white); 
+    padding: 48px 56px;
+    border-radius: 8px; 
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+  
+  /* Instruction Box */
+  .instruction {
+    color: var(--ou-gray-dark);
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+    background: #FFFBF7;
+    padding: 20px 24px;
+    border-radius: 6px;
+    border-left: 4px solid var(--ou-crimson);
+  }
+  
+  .instruction strong {
+    color: var(--ou-crimson);
+    font-weight: 700;
+  }
+  
+  /* Section Titles */
+  .section-title {
+    font-family: 'Arboria', 'Proxima Nova', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--ou-black);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--ou-crimson);
+    letter-spacing: -0.3px;
+  }
+  
+  /* Textarea */
+  .textarea-wrapper {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  
+  textarea { 
+    width: 100%; 
+    min-height: 380px; 
+    padding: 20px; 
+    font-family: 'SF Mono', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    border: 2px solid var(--ou-gray-light);
+    border-radius: 6px; 
+    resize: vertical;
+    transition: all 0.2s ease;
+    background: #FAFAFA;
+    color: var(--ou-black);
+  }
+  
+  textarea:focus {
+    outline: none;
+    border-color: var(--ou-crimson);
+    background: var(--ou-white);
+    box-shadow: 0 0 0 3px rgba(132, 22, 23, 0.1);
+  }
+  
+  textarea::placeholder {
+    color: var(--ou-gray-medium);
+    opacity: 0.7;
+  }
+  
+  /* File Section */
+  .file-section {
+    margin-top: 40px;
+    padding: 32px;
+    background: #FAFAFA;
+    border-radius: 6px;
+    border: 1px solid #E0E0E0;
+  }
+  
+  .file-label {
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: 700;
+    color: var(--ou-black);
+    margin-bottom: 12px;
+    display: block;
+    font-size: 16px;
+  }
+  
+  .row { 
+    display: flex; 
+    gap: 16px; 
+    align-items: stretch;
+    margin-top: 16px; 
+  }
+  
+  input[type="text"] { 
+    flex: 1; 
+    padding: 14px 18px; 
+    border: 2px solid var(--ou-gray-light);
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: 'Proxima Nova', sans-serif;
+    transition: all 0.2s ease;
+    background: var(--ou-white);
+    color: var(--ou-black);
+    font-weight: 500;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: var(--ou-crimson);
+    box-shadow: 0 0 0 3px rgba(132, 22, 23, 0.1);
+  }
+  
+  /* Button */
+  button { 
+    background: var(--ou-crimson);
+    color: var(--ou-white); 
+    border: none; 
+    padding: 14px 36px; 
+    border-radius: 6px; 
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: 'Arboria', 'Proxima Nova', sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background: var(--ou-crimson-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(132, 22, 23, 0.3);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  button:disabled { 
+    background: var(--ou-gray-medium);
+    color: var(--ou-white);
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+  }
+  
+  /* Note */
+  .note { 
+    font-size: 13px; 
+    color: var(--ou-gray-medium);
+    margin-top: 16px;
+    line-height: 1.6;
+    padding: 12px 16px;
+    background: var(--ou-white);
+    border-radius: 4px;
+    border: 1px solid #E0E0E0;
+  }
+  
+  .note strong {
+    color: var(--ou-gray-dark);
+    font-weight: 700;
+  }
+  
+  /* Status Messages */
+  .status { 
+    margin-top: 20px; 
+    font-size: 15px;
+    padding: 16px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid;
+  }
+  
+  .status::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .error { 
+    color: var(--error-text);
+    background: var(--error-bg);
+    border-color: var(--error-border);
+  }
+  
+  .error::before {
+    background: var(--error-border);
+  }
+  
+  .success { 
+    color: var(--success-text);
+    background: var(--success-bg);
+    border-color: var(--success-border);
+  }
+  
+  .success::before {
+    background: var(--success-border);
+  }
+  
+  /* Info Section */
+  .info-section {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 2px solid #E0E0E0;
+  }
+  
+  .info-section .section-title {
+    margin-bottom: 32px;
+  }
+  
+  /* Markdown Content Styling */
+  .markdown-content {
+    color: var(--ou-gray-dark);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  
+  .markdown-content h2 {
+    font-family: 'Arboria', 'Proxima Nova', sans-serif;
+    color: var(--ou-crimson);
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+  
+  .markdown-content h3 {
+    font-family: 'Arboria', 'Proxima Nova', sans-serif;
+    color: var(--ou-black);
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  .markdown-content h4 {
+    font-family: 'Proxima Nova', sans-serif;
+    color: var(--ou-gray-dark);
+    margin-top: 24px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .markdown-content p {
+    margin: 16px 0;
+    line-height: 1.8;
+    color: var(--ou-gray-dark);
+  }
+  
+  .markdown-content ul, .markdown-content ol {
+    margin: 16px 0;
+    padding-left: 32px;
+  }
+  
+  .markdown-content li {
+    margin: 10px 0;
+    line-height: 1.7;
+  }
+  
+  .markdown-content code {
+    background: var(--ou-cream);
+    color: var(--ou-crimson);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'SF Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #E0E0E0;
+  }
+  
+  .markdown-content pre {
+    background: #1E1E1E;
+    color: #E0E0E0;
+    padding: 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 24px 0;
+    border: 1px solid #333;
+  }
+  
+  .markdown-content pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+    border: none;
+    font-weight: 400;
+  }
+  
+  .markdown-content strong {
+    color: var(--ou-black);
+    font-weight: 700;
+  }
+  
+  .markdown-content blockquote {
+    border-left: 4px solid var(--ou-crimson);
+    padding-left: 20px;
+    margin: 20px 0;
+    color: var(--ou-gray-medium);
+    font-style: italic;
+  }
+  
+  .markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .markdown-content th {
+    background: var(--ou-crimson);
+    color: var(--ou-white);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-family: 'Arboria', 'Proxima Nova', sans-serif;
+  }
+  
+  .markdown-content td {
+    padding: 12px 16px;
+    border-top: 1px solid #E0E0E0;
+    color: var(--ou-gray-dark);
+  }
+  
+  .markdown-content tr:nth-child(even) {
+    background: #FAFAFA;
+  }
+  
+  .markdown-content tr:hover {
+    background: #F5F5F5;
+  }
+  
+  /* Scrollbar Styling - Hidden */
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  
+  /* Firefox scrollbar hiding */
+  html {
+    scrollbar-width: none;
+  }
+  
+  /* Ensure scrolling still works */
+  body {
+    -ms-overflow-style: none;
+  }
+  
+  /* Loading Animation */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  
+  button:disabled {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    main {
+      margin: 20px 16px;
+      margin-top: 80px; /* Further reduced for shorter header on mobile */
+      padding: 32px 24px;
+    }
+  
+    header h1 {
+      font-size: 28px;
+    }
+  
+    header p {
+      font-size: 12px;
+    }
+    
+  
+    .row {
+      flex-direction: column;
+    }
+  
+    button {
+      width: 100%;
+    }
+  
+    .section-title {
+      font-size: 22px;
+    }
+  
+    .markdown-content h2 {
+      font-size: 26px;
+    }
+  
+    .markdown-content h3 {
+      font-size: 20px;
+    }
+  }
