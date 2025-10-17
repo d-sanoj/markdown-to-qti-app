@@ -26,9 +26,6 @@ sudo xattr -rd com.apple.quarantine "/Applications/Markdown to QTI.app"
 - Open the app from your Applications folder or Launchpad
 - The app is ready to use!
 
-## What This App Does
-Convert your Markdown-formatted quizzes into QTI (Question and Test Interoperability) format for use in learning management systems.
-
 ## Troubleshooting
 If you encounter any issues:
 1. Make sure you've run the quarantine removal command above
