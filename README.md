@@ -23,6 +23,10 @@ npm run build:mac
 
 This will create a DMG file in the `dist/` folder that you can distribute to users.
 
+## Install Release versionof the app
+
+View [Simple_Install.md](Simple_Install.md) and follow the instructions to intall the release versionof the app.
+
 ## Usage
 
 1. Open the app
