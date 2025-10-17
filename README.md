@@ -44,7 +44,7 @@ This will create a DMG file in the `dist/` folder that you can distribute to use
 - File Upload
 - Text Only
 
-Visit [infomation.md] (public/information.md) to know more information.
+Visit [infomation.md](public/information.md) to know more information.
 
 ## Distribution
 
