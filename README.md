@@ -25,7 +25,7 @@ This will create a DMG file in the `dist/` folder that you can distribute to use
 
 For advanced installation options and signing the application view [INSTALLATION_INSTRUCTIONS.md](INSTALLATION_INSTRUCTIONS.md).
 
-## Install Release versionof the app
+## Install Release version of the app
 
 View [Simple_Install.md](Simple_Install.md) and follow the instructions to intall the release versionof the app.
 
@@ -52,11 +52,4 @@ View [Simple_Install.md](Simple_Install.md) and follow the instructions to intal
 
 Visit [infomation.md](public/information.md) to know more information.
 
-## Distribution
-
-After building, share the DMG file from the `dist/` folder. Users can:
-1. Download the DMG
-2. Drag the app to Applications
-3. Double-click to run
-
-No technical knowledge required!
+No technical knowledge required to use the applicaion!
