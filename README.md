@@ -23,6 +23,8 @@ npm run dist:unsigned
 
 This will create a DMG file in the `dist/` folder that you can distribute to users.
 
+For advanced installation options and signing the application view [INSTALLATION_INSTRUCTIONS.md](INSTALLATION_INSTRUCTIONS.md).
+
 ## Install Release versionof the app
 
 View [Simple_Install.md](Simple_Install.md) and follow the instructions to intall the release versionof the app.
