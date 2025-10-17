@@ -27,7 +27,7 @@ This will create a DMG file in the `dist/` folder that you can distribute to use
 
 1. Open the app
 2. Paste your Markdown quiz content
-3. Click "Convert"
+3. Click "Convert to QTI"
 4. Download your QTI zip file
 
 ## Supported Question Types
@@ -37,12 +37,14 @@ This will create a DMG file in the `dist/` folder that you can distribute to use
 - Multiple Answers
 - Fill in the Blank
 - Fill in Multiple Blanks
-- Multiple Dropdowns
+- Calculated
 - Matching
 - Numerical
 - Essay
 - File Upload
 - Text Only
+
+Visit infomation.md to know more information.
 
 ## Distribution
 
